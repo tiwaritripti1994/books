@@ -1,0 +1,19 @@
+<div class="container-fluid">
+ <div class="row category text-center pt-4 pb-2 ">
+   <div class="col-md-12 text-left searchdiv_lg">
+  <img src="../../assets/img/Back.svg" (click)="goBack()"> <span class="genre pl-3"><b>{{category}}</b></span>
+</div>
+ </div>
+ <div class="row category pb-4">
+  <div class="col-md-12 searchdiv_lg">
+    <input type="search" class="searchbox searchbox_lg" placeholder="Search" (keyup)="getSearchedBooks($event)">
+  </div>
+ </div>
+ <div class="row pr-18 card_lg">
+   <div class="col-md-2 pt-4 pb-2 col-sm-4" *ngFor="let data of finalData; let i = index" (click)="showAlert(i)">
+    <img [src]="data.formats['image/jpeg']" class="rectangle"> <br/>
+    <span class="bookName"><b>{{data.title | uppercase}}</b></span>
+    <p class="bookAuthor">{{data.authors[0]['name']}}</p>
+   </div>
+ </div>
+</div>
